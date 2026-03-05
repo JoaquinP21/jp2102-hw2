@@ -1,0 +1,72 @@
+\documentclass{article}
+
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry} % Used for page margins, often replaces fullpage
+\usepackage{amsmath,amsthm,amssymb} % amssymb added for common math symbols
+
+\usepackage{enumitem}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+
+\title{Assignment 2: Search Problems in AI}
+\author{Joaquin}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+Trace the operation of $A^*$ search (use the tree version, i.e. without using a closed list) applied to
+the problem of getting to Bucharest from Lugoj using the straight-line distance heuristic. That is, show the sequence of
+nodes that the algorithm will consider and the $f$ , $g$, and h score for each node. You don’t need to draw the graph, just right
+down a sequence of $(city, f (city), g(city), h(city))$ in the order in which the nodes are expanded.
+
+\section*{Problem 2}
+Consider a state space where the start state is number 1 and each state $k$ has two successors:
+numbers $2k$ and $2k + 1$
+\begin{itemize}
+   \item Suppose the goal state is 11. List the order in which states will be visited for breadthfirst search, depth-limited search with limit 3, and iterative deepening search.
+\end{itemize}
+
+%solution 
+
+\begin{itemize}
+   \item How well would bidirectional search work on this problem? List the order in which states will be visited. What is the branching factor in each direction of the bidirectional search?
+\end{itemize}
+
+%solution 
+
+\section*{Problem 3}
+Which of the following statements are correct and which ones are wrong? 
+\begin{enumerate}
+   \item[(a)]
+   \item[(b)] 
+   \item[(c)]
+   \item[(d)]
+   \item[(e)]
+   \item[(f)]
+   \item[(g)]
+   \item[(h)]
+   \item[(i)]       
+\end{enumerate}
+
+\section*{Problem 4}
+
+\section*{Problem 5}
+
+\section*{Problem 6}
+
+\section*{Problem 7}
+
+\section*{Problem 8}
+
+\section*{Problem 9}
+
+\end{document}
