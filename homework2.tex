@@ -62,6 +62,7 @@ Which of the following statements are correct and which ones are wrong?
 \section*{Problem 5}
 
 \section*{Problem 6}
+In a CSP search problem, it is better to choose the variable that is most constrained and the value that is least constraining because it reduces the search space and increases the likelihood of finding a valid assignment quickly. If one selects the most constrained variable(Minimum Remaining Values heuristic), that means he will choose the variable with the fewest legal values remaining(detecting failure early). In the case a variable does not have any valid assignments left, the algorithm can backtrack instead of exploring deeper into an invalid branch. Upon selecting the variable, choosing the least constraining value means one selects the value that eliminates the least amount of options for the remaining unassigned variables. This will come in use for future assignments as it preserves and reduces the probability of conflicts later on in the search.
 
 \section*{Problem 7}
 
