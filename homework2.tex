@@ -65,7 +65,141 @@ Which of the following statements are correct and which ones are wrong?
 In a CSP search problem, it is better to choose the variable that is most constrained and the value that is least constraining because it reduces the search space and increases the likelihood of finding a valid assignment quickly. If one selects the most constrained variable(Minimum Remaining Values heuristic), that means he will choose the variable with the fewest legal values remaining(detecting failure early). In the case a variable does not have any valid assignments left, the algorithm can backtrack instead of exploring deeper into an invalid branch. Upon selecting the variable, choosing the least constraining value means one selects the value that eliminates the least amount of options for the remaining unassigned variables. This will come in use for future assignments as it preserves and reduces the probability of conflicts later on in the search.
 
 \section*{Problem 7}
+\textbf{(a) Best move using minimax}
 
+First move made by MAX at node $A$, and the next level corresponds to MIN nodes.
+
+Left subtree:
+
+\[
+D = 3, \quad E = 5
+\]
+
+Since $B$ is a MIN node:
+
+\[
+B = \min(3,5) = 3
+\]
+
+Right subtree:
+
+Node $F$ is a MIN node with children $I$ and $J$.
+
+\[
+I = \max(0,7) = 7
+\]
+
+\[
+F = \min(7,5) = 5
+\]
+
+Node $G$ is a MIN node:
+
+\[
+G = \min(7,8) = 7
+\]
+
+Node $H = 4$
+
+Node $C$ is a MIN node:
+
+\[
+C = \min(5,7,4) = 4
+\]
+
+Finally, MAX selects:
+
+\[
+A = \max(3,4) = 4
+\]
+
+Therefore, the best move for MAX is to choose node $C$.
+
+\bigskip
+
+\textbf{(b) Alpha-Beta Pruning (Left-to-Right)}
+
+Nodes visited in order:
+
+\[
+A \rightarrow B \rightarrow D \rightarrow E
+\]
+
+$B$ evaluates to $3$.
+
+Next:
+
+\[
+A \rightarrow C \rightarrow F
+\]
+
+\[
+F \rightarrow I \rightarrow M \rightarrow N
+\]
+
+\[
+F \rightarrow J
+\]
+
+\[
+C \rightarrow G \rightarrow K
+\]
+
+Since MIN at $C$ already has value $5$, the branch containing $L$ is pruned.
+
+Next:
+
+\[
+C \rightarrow H
+\]
+
+Visited nodes:
+
+\[
+A, B, D, E, C, F, I, M, N, J, G, K, H
+\]
+
+Pruned nodes:
+
+\[
+L
+\]
+
+\bigskip
+
+\textbf{(c) Alpha-Beta Pruning (Right-to-Left)}
+
+Exploring right subtree first gives stronger bound earlier.
+
+Nodes visited:
+
+\[
+A \rightarrow C \rightarrow H
+\]
+
+\[
+C \rightarrow G \rightarrow L \rightarrow K
+\]
+
+\[
+C \rightarrow F \rightarrow J
+\]
+
+Since MIN at $C$ already finds a value of $4$, the subtree rooted at $B$ cannot improve MAX's choice and is pruned.
+
+Visited nodes:
+
+\[
+A, C, H, G, L, K, F, J
+\]
+
+Pruned nodes:
+
+\[
+B, D, E, I, M, N
+\]
+
+Because alpha-beta pruning is highly dependent on the order in which nodes are explored, different pruning occures. When good moves are evaluated earlier, tighter bounds will be established sooner, allowing for more branches to be pruned.
 \section*{Problem 8}
 
 \section*{Problem 9}
