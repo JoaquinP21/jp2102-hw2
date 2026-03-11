@@ -224,85 +224,72 @@ Therefore, the best move for MAX is to choose node $C$.
 
 \textbf{(b) Alpha-Beta Pruning (Left-to-Right)}
 
-Nodes visited in order:
+\begin{tikzpicture}[
+    every node/.style={circle, draw, minimum size=1em},
+    level 1/.style={sibling distance=4cm, level distance=1.5cm},
+    level 2/.style={sibling distance=2cm, level distance=1.5cm},
+    level 3/.style={sibling distance=1.5cm, level distance=1.5cm},
+    level 4/.style={sibling distance=1cm, level distance=1.5cm}
+]
 
-\[
-A \rightarrow B \rightarrow D \rightarrow E
-\]
+\node{A}
+    child {node{B}
+        child {node{D}}
+        child {node{E}}
+    }
+    child {node{C}
+        child {node{F}
+            child {node{I}
+                child {node{M}}
+                child {node{N}}
+            }
+            child {node{J}}
+        }
+        child {node{G}
+            child {node{K}}
+            child {node{L}}
+        }
+        child {node{H}}
+    };
 
-$B$ evaluates to $3$.
-
-Next:
-
-\[
-A \rightarrow C \rightarrow F
-\]
-
-\[
-F \rightarrow I \rightarrow M \rightarrow N
-\]
-
-\[
-F \rightarrow J
-\]
-
-\[
-C \rightarrow G \rightarrow K
-\]
-
-Since MIN at $C$ already has value $5$, the branch containing $L$ is pruned.
-
-Next:
-
-\[
-C \rightarrow H
-\]
-
-Visited nodes:
-
-\[
-A, B, D, E, C, F, I, M, N, J, G, K, H
-\]
-
-Pruned nodes:
-
-\[
-L
-\]
-
-\bigskip
+\end{tikzpicture}
 
 \textbf{(c) Alpha-Beta Pruning (Right-to-Left)}
 
-Exploring right subtree first gives stronger bound earlier.
+\begin{tikzpicture}[
+    every node/.style={circle, draw, minimum size=1em},
+    level 1/.style={sibling distance=4cm, level distance=1.5cm},
+    level 2/.style={sibling distance=2cm, level distance=1.5cm},
+    level 3/.style={sibling distance=1.5cm, level distance=1.5cm},
+    level 4/.style={sibling distance=1cm, level distance=1.5cm}
+]
 
-Nodes visited:
+\node{A}
+    child {node{C}
+        child {node{H}}
+        child {node{G}
+            child {node{L}}
+            child {node{K}}
+        }
+        child {node{F}
+            child {node{J}}
+            child {node{I}
+                child {node{N}}
+                child {node{M}}
+            }
+        }
+    }
+    child {node{B}
+        child {node{E}}
+        child {node{D}}
+    };
 
-\[
-A \rightarrow C \rightarrow H
-\]
+\end{tikzpicture}
 
-\[
-C \rightarrow G \rightarrow L \rightarrow K
-\]
 
-\[
-C \rightarrow F \rightarrow J
-\]
 
-Since MIN at $C$ already finds a value of $4$, the subtree rooted at $B$ cannot improve MAX's choice and is pruned.
 
-Visited nodes:
 
-\[
-A, C, H, G, L, K, F, J
-\]
-
-Pruned nodes:
-
-\[
-B, D, E, I, M, N
-\]
 
 Because alpha-beta pruning is highly dependent on the order in which nodes are explored, different pruning occures. When good moves are evaluated earlier, tighter bounds will be established sooner, allowing for more branches to be pruned.
 \section*{Problem 8}
