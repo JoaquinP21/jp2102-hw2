@@ -285,6 +285,58 @@ Therefore, the best move for MAX is to choose node $C$.
 
 Because alpha-beta pruning is highly dependent on the order in which nodes are explored, different pruning occures. When good moves are evaluated earlier, tighter bounds will be established sooner, allowing for more branches to be pruned.
 \section*{Problem 8}
+Which of the following are consistent?
+
+We know a heuristic is consistent if h(n) <= c(n,n') + h(n') for every edge. Given that h1 and h2 are consistent:
+
+a) h(n) = min{h1(n), h2(n)}
+
+Because
+
+h1(n) <= c + h1(n')
+h2(n) <= c + h2(n')
+
+The minimum of the two also satisfies the inequality. So…
+
+min{h1(n), h2(n)} <= c + min{h1(n'), h2(n')}
+
+Therefore, a is consistent.
+
+b) h(n) = w h1(n) + (1 - w) h2(n)
+
+Using consistency of h1 and h2:
+
+h1(n) <= c + h1(n')
+h2(n) <= c + h2(n')
+
+Multiply by weights and add:
+
+w h1(n) + (1 - w) h2(n)
+<= w(c + h1(n')) + (1 - w)(c + h2(n'))
+
+= c + w h1(n') + (1 - w) h2(n')
+
+= c + h(n')
+
+Therefore, b is also consistent.
+
+c) h(n) = max{h1(n), h2(n)}
+
+Since
+
+h1(n) <= c + h1(n')
+h2(n) <= c + h2(n')
+
+Taking the maximum preserves the inequality:
+
+max{h1(n), h2(n)} <= c + max{h1(n'), h2(n')}
+
+Therefore, c is also consistent.
+
+a consistent
+b consistent
+c consistent
+
 
 \section*{Problem 9}
 
