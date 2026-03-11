@@ -337,6 +337,60 @@ a consistent
 b consistent
 c consistent
 
+Which of the following are admissible?
+
+We know a heuristic is admissible if h(n) <= h*(n) for every node, where h*(n) is the true optimal cost from n to the goal. Given that h1 and h2 are admissible:
+
+a) h(n) = min{h1(n), h2(n)}
+
+Because
+
+h1(n) <= h*(n)
+h2(n) <= h*(n)
+
+the minimum of the two is also less than or equal to h*(n). So
+
+min{h1(n), h2(n)} <= h*(n)
+
+Therefore, a is admissible.
+
+b) h(n) = w h1(n) + (1 - w) h2(n), where 0 <= w <= 1
+
+Using admissibility of h1 and h2:
+
+h1(n) <= h*(n)
+h2(n) <= h*(n)
+
+Multiply by the weights and add:
+
+w h1(n) + (1 - w) h2(n)
+<= w h*(n) + (1 - w) h*(n)
+
+= h*(n)
+
+Therefore,
+
+h(n) <= h*(n)
+
+So b is admissible.
+
+c) h(n) = max{h1(n), h2(n)}
+
+Since
+
+h1(n) <= h*(n)
+h2(n) <= h*(n)
+
+the maximum of the two is still less than or equal to h*(n). So
+
+max{h1(n), h2(n)} <= h*(n)
+
+Therefore, c is admissible.
+
+a admissible
+b admissible
+c admissible
+
 
 \section*{Problem 9}
 
