@@ -241,13 +241,11 @@ Therefore, the best move for MAX is to choose node $C$.
         child {node{F}
             child {node{I}
                 child {node{M}}
-                child {node{N}}
             }
             child {node{J}}
         }
         child {node{G}
             child {node{K}}
-            child {node{L}}
         }
         child {node{H}}
     };
@@ -260,28 +258,22 @@ Therefore, the best move for MAX is to choose node $C$.
     every node/.style={circle, draw, minimum size=1em},
     level 1/.style={sibling distance=4cm, level distance=1.5cm},
     level 2/.style={sibling distance=2cm, level distance=1.5cm},
-    level 3/.style={sibling distance=1.5cm, level distance=1.5cm},
-    level 4/.style={sibling distance=1cm, level distance=1.5cm}
+    level 3/.style={sibling distance=1.5cm, level distance=1.5cm}
 ]
 
 \node{A}
+    child {node{B}
+        child {node{D}}
+        child {node{E}}
+    }
     child {node{C}
-        child {node{H}}
-        child {node{G}
-            child {node{L}}
-            child {node{K}}
-        }
         child {node{F}
             child {node{J}}
-            child {node{I}
-                child {node{N}}
-                child {node{M}}
-            }
         }
-    }
-    child {node{B}
-        child {node{E}}
-        child {node{D}}
+        child {node{G}
+            child {node{L}}
+        }
+        child {node{H}}
     };
 
 \end{tikzpicture}
