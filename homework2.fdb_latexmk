@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1773279511.80616 "/Users/joaquinpollard/jp2102-hw2/homework2.tex" "homework2.pdf" "homework2" 1773279512.45758 0
-  "/Users/joaquinpollard/jp2102-hw2/homework2.tex" 1773279511.59614 15608 8903cd810afba136557a5a90ecd1846c ""
+["pdflatex"] 1773279883.64143 "/Users/joaquinpollard/jp2102-hw2/homework2.tex" "homework2.pdf" "homework2" 1773279884.31414 0
+  "/Users/joaquinpollard/jp2102-hw2/homework2.tex" 1773279883.42881 15632 c4e9e108107e69609f2bd0596dd71de9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -136,8 +136,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1772331554 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "homework2.aux" 1773279512.40105 32 1b174032087fb90900fa6203d3bb0a7e "pdflatex"
-  "homework2.tex" 1773279511.59614 15608 8903cd810afba136557a5a90ecd1846c ""
+  "homework2.aux" 1773279884.25615 32 1b174032087fb90900fa6203d3bb0a7e "pdflatex"
+  "homework2.tex" 1773279883.42881 15632 c4e9e108107e69609f2bd0596dd71de9 ""
   (generated)
   "homework2.aux"
   "homework2.log"
