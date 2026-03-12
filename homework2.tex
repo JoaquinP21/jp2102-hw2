@@ -415,115 +415,135 @@ Therefore, the best move for MAX is to choose node $C$.
 
 
 
-nanaBecause alpha-beta pruning is highly dependent on the order in which nodes are explored, different pruning occures. When good moves are evaluated earlier, tighter bounds will be established sooner, allowing for more branches to be pruned.
+Because alpha-beta pruning is highly dependent on the order in which nodes are explored, different pruning occures. When good moves are evaluated earlier, tighter bounds will be established sooner, allowing for more branches to be pruned.
 \section*{Problem 8}
 Which of the following are consistent?
 
-We know a heuristic is consistent if $h(n) <= c(n,n') + h(n')$ for every edge. Given that h1 and h2 are consistent:
+We know a heuristic is consistent if
 
-a) h(n) = min{h1(n), h2(n)}
+h(n) \le c(n,n') + h(n')
+
+for every edge. Given that h_1 and h_2 are consistent:
+
+a) h(n) = \min\{h_1(n), h_2(n)\}
 
 Because
 
-h1(n) <= c + h1(n')
-h2(n) <= c + h2(n')
+h_1(n) \le c(n,n') + h_1(n')  
+h_2(n) \le c(n,n') + h_2(n')
 
-The minimum of the two also satisfies the inequality. So…
+the minimum of the two also satisfies the inequality. So
 
-min{h1(n), h2(n)} <= c + min{h1(n'), h2(n')}
+\min\{h_1(n), h_2(n)\} \le c(n,n') + \min\{h_1(n'), h_2(n')\}
 
 Therefore, a is consistent.
 
-b) h(n) = w h1(n) + (1 - w) h2(n)
+b) h(n) = w h_1(n) + (1 - w) h_2(n)
 
-Using consistency of h1 and h2:
+Using consistency of h_1 and h_2:
 
-h1(n) <= c + h1(n')
-h2(n) <= c + h2(n')
-
-Multiply by weights and add:
-
-w h1(n) + (1 - w) h2(n)
-<= w(c + h1(n')) + (1 - w)(c + h2(n'))
-
-= c + w h1(n') + (1 - w) h2(n')
-
-= c + h(n')
-
-Therefore, b is also consistent.
-
-c) h(n) = max{h1(n), h2(n)}
-
-Since
-
-h1(n) <= c + h1(n')
-h2(n) <= c + h2(n')
-
-Taking the maximum preserves the inequality:
-
-max{h1(n), h2(n)} <= c + max{h1(n'), h2(n')}
-
-Therefore, c is also consistent.
-
-a consistent
-b consistent
-c consistent
-
-Which of the following are admissible?
-
-We know a heuristic is admissible if h(n) <= h*(n) for every node, where h*(n) is the true optimal cost from n to the goal. Given that h1 and h2 are admissible:
-
-a) h(n) = min{h1(n), h2(n)}
-
-Because
-
-h1(n) <= h*(n)
-h2(n) <= h*(n)
-
-the minimum of the two is also less than or equal to h*(n). So
-
-min{h1(n), h2(n)} <= h*(n)
-
-Therefore, a is admissible.
-
-b) h(n) = w h1(n) + (1 - w) h2(n), where 0 <= w <= 1
-
-Using admissibility of h1 and h2:
-
-h1(n) <= h*(n)
-h2(n) <= h*(n)
+h_1(n) \le c(n,n') + h_1(n')  
+h_2(n) \le c(n,n') + h_2(n')
 
 Multiply by the weights and add:
 
-w h1(n) + (1 - w) h2(n)
-<= w h*(n) + (1 - w) h*(n)
+w h_1(n) + (1 - w) h_2(n)
+\le w(c(n,n') + h_1(n')) + (1 - w)(c(n,n') + h_2(n'))
 
-= h*(n)
+= c(n,n') + w h_1(n') + (1 - w) h_2(n')
 
-Therefore,
+= c(n,n') + h(n')
 
-h(n) <= h*(n)
+Therefore, b is also consistent.
 
-So b is admissible.
-
-c) h(n) = max{h1(n), h2(n)}
+c) h(n) = \max\{h_1(n), h_2(n)\}
 
 Since
 
-h1(n) <= h*(n)
-h2(n) <= h*(n)
+h_1(n) \le c(n,n') + h_1(n')  
+h_2(n) \le c(n,n') + h_2(n')
 
-the maximum of the two is still less than or equal to h*(n). So
+taking the maximum preserves the inequality:
 
-max{h1(n), h2(n)} <= h*(n)
+\max\{h_1(n), h_2(n)\} \le c(n,n') + \max\{h_1(n'), h_2(n')\}
+
+Therefore, c is also consistent.
+
+a consistent  
+b consistent  
+c consistent
+
+
+Which of the following are admissible?
+
+We know a heuristic is admissible if
+
+h(n) \le h^*(n)
+
+for every node, where h^*(n) is the true optimal cost from n to the goal. Given that h_1 and h_2 are admissible:
+
+a) h(n) = \min\{h_1(n), h_2(n)\}
+
+Because
+
+h_1(n) \le h^*(n)  
+h_2(n) \le h^*(n)
+
+the minimum of the two is also less than or equal to h^*(n). So
+
+\min\{h_1(n), h_2(n)\} \le h^*(n)
+
+Therefore, a is admissible.
+
+b) h(n) = w h_1(n) + (1 - w) h_2(n), where 0 \le w \le 1
+
+Using admissibility of h_1 and h_2:
+
+h_1(n) \le h^*(n)  
+h_2(n) \le h^*(n)
+
+Multiply by the weights and add:
+
+w h_1(n) + (1 - w) h_2(n)
+\le w h^*(n) + (1 - w) h^*(n)
+
+= h^*(n)
+
+Therefore,
+
+h(n) \le h^*(n)
+
+So b is admissible.
+
+c) h(n) = \max\{h_1(n), h_2(n)\}
+
+Since
+
+h_1(n) \le h^*(n)  
+h_2(n) \le h^*(n)
+
+the maximum of the two is still less than or equal to h^*(n). So
+
+\max\{h_1(n), h_2(n)\} \le h^*(n)
 
 Therefore, c is admissible.
 
-a admissible
-b admissible
+a admissible  
+b admissible  
 c admissible
 
-
 \section*{Problem 9}
+a. Hill climbing is better than simulated annealing when every uphill path naturally leads to the global maximum, or at least when local search traps are rare. In that type of problem, always moving uphill is considered enough. Therefore random “bad-move” made by simulated annealing is unnecessary overhead.
+
+b. The hill climbing part of simulated annealing is not necessary when the objective landscape is so noisy/uninformative that local moves do not give you reliable signs of improvement. Being near good states does not necesitate that you are likely to find an even better one near it.
+
+c. Simulated annealing is useful in problems where the landscape has useful/insignful local structure. It doesnt necesitate that the value function is perfectly smooth or completely random, but that there is enough structure for local improvement to matter and enough local traps that some randomness is needed to escape them.
+
+d. Instead of just returning the final state something we could adjust would be to keep track of and return the best encountered state during the search as simulated annealing may move on away from them (the good states) as it explores.
+
+e. If we had the capacity to store two million states, we could potentially maintain very good candidate states and explore multiple regions of the search space in parallel. We could then share information about good states instead of running independent simulated annealing runs.
+
+f. Gradient ascent always moves in the directions of the steepest increase making it prone to getting stuck in local maxima. We could potentially introduce a temperature controlled probability of taking downhill steps so the algorithm can escape local maxima early in the search. This will help it to gradually behave like standard gradient ascent as temperature decreases.
+
 
 \end{document}
